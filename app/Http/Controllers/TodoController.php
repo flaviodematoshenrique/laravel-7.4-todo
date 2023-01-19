@@ -102,6 +102,8 @@ class TodoController extends Controller
                 return response('', 403);
             }
 
+            logger()->info($todo);
+            $todo = Todo::find($todo->id);
             $todo->delete();
         } catch (\Throwable $th) {
             logger()->error($th);
