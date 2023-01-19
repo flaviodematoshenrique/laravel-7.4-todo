@@ -20,6 +20,8 @@ class TodoController extends Controller
 
         $todos = Todo::where('user_id', $user->id)->get();
 
+
+        return view('dashboard', compact('user', 'todos'));
         foreach ($todos as $todo) {
             if ($todo->is_complete == false) {
                 $is_complete_counter += 1;
